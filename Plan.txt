@@ -1,0 +1,103 @@
+This Project is building the backend for an e-commerce website, here is the project outline.
+
+Project Overview: E-commerce Website Backend
+Objective: Develop a backend system for an e-commerce platform that handles product management, customer accounts, shopping carts, orders, and payment processing.
+
+Step 1: Define the Requirements
+
+Product Management:
+Add, update, and remove products.
+Manage product categories and inventory.
+Search and filter products.
+User Management:
+User registration and authentication.
+Profile management.
+Password recovery.
+Shopping Cart and Order Management:
+Add, update, and remove items in a cart.
+Checkout process that transitions a cart to an order.
+View order history.
+Payment Integration:
+Integration with a mock payment gateway for processing payments.
+Support for different payment methods (credit card, PayPal, etc.).
+
+Step 2: Technologies
+
+
+Spring Boot: This will be the core framework for creating the REST API.
+Spring Data JPA: For data access layers, simplifying database interactions.
+WAMP MySQL: As the relational database to store user data, product information, orders, etc.
+Gradle
+JWT (JSON Web Tokens): For secure authentication.
+Spring Security: For securing the API.
+
+Step 3: API Design
+Design REST API endpoints. Here’s a simple draft of what some of these might look like:
+
+POST /api/users/register - Registers a new user.
+POST /api/users/login - Authenticates a user.
+GET /api/products - Retrieves all products or searches for products by parameters.
+POST /api/products - Adds a new product (admin only).
+PUT /api/products/{id} - Updates product details (admin only).
+DELETE /api/products/{id} - Deletes a product (admin only).
+POST /api/cart - Adds an item to the cart.
+GET /api/cart - Gets all items in the cart.
+DELETE /api/cart/{itemId} - Removes an item from the cart.
+POST /api/orders - Creates a new order from the cart.
+GET /api/orders - Gets the user's order history.
+
+Step 4: Setup Development Environment
+Install Java 17.
+For this project I'm using Visual Studio Codes.
+Install Wamp MySQL and set up database.
+Install Gradle
+
+Step 5: Start Coding
+Begin by setting up your project structure with Spring Initializr.
+Implement the database models using Spring Data JPA entities.
+Develop the repositories and services for handling business logic.
+Implement the controllers for your API endpoints.
+
+Step 6: Testing
+Write unit tests for your services using JUnit and Mockito.
+Test API endpoints with Postman or any other API testing tool.
+
+Step 7: Documentation
+Document your API endpoints with Swagger or Spring REST Docs.
+This project will not only enhance your backend skills but also give you a significant project to discuss during job interviews.
+
+Step 1: Define Database Models
+Begin by defining your database models. These are the JPA entities that will represent your tables in the MySQL database.
+
+Product: Represents items for sale.
+Attributes: id, name, description, price, stock quantity, category.
+User: Represents customers and possibly admins.
+Attributes: id, username, password, email, role.
+Order: Represents a completed purchase.
+Attributes: id, user, order date, total amount, status.
+OrderItem: Represents items within an order.
+Attributes: id, order, product, quantity, price.
+Cart: Temporary storage for items a user intends to purchase.
+Attributes: id, user.
+CartItem: Represents items within the cart.
+Attributes: id, cart, product, quantity.
+Step 2: Set Up Database Access Layer
+Use Spring Data JPA to create repositories for accessing and manipulating the database.
+
+Repository for each entity: For example, ProductRepository, UserRepository, etc.
+Step 3: Develop Business Logic
+Create service classes that handle business logic.
+
+ProductService: Methods to add, remove, update, and fetch products.
+UserService: Methods for user registration, authentication, and profile management.
+OrderService: Methods to create orders from carts, update order status, and view order history.
+CartService: Methods to add, remove, and update items in the cart.
+Step 4: Implement API Endpoints
+Define controllers that handle API requests and interact with your services.
+
+ProductController: Endpoints for product management (CRUD operations).
+UserController: Endpoints for user registration, login, and profile updates.
+OrderController: Endpoints to manage orders.
+CartController: Endpoints for shopping cart management.
+Step 5: Secure the API
+Configure Spring Security to secure your endpoints, using basic authentication or JWT for managing sessions and securing sensitive operations.
