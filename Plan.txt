@@ -23,7 +23,6 @@ Support for different payment methods (credit card, PayPal, etc.).
 
 Step 2: Technologies
 
-
 Spring Boot: This will be the core framework for creating the REST API.
 Spring Data JPA: For data access layers, simplifying database interactions.
 WAMP MySQL: As the relational database to store user data, product information, orders, etc.
